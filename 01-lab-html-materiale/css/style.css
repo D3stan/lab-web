@@ -1,7 +1,3 @@
-aside img {
-    width: 50px;
-}
-
 body {
     background-color: #e4e4e4;
 }
@@ -17,7 +13,7 @@ body, h1, ul {
 "body > header" significa tutti gli header figli di body 
 non uso "header" da solo per maggior dettaglio del codice
 */
-body > header {
+body > header, footer {
     background-color: rgb(54, 54, 54);
     color: #fff;
     text-align: center;
@@ -30,7 +26,7 @@ nav {
     margin: 0 4%;
 }
 
-nav ul {
+nav ul, aside ul {
     list-style: none;
 }
 
@@ -111,4 +107,42 @@ main > article > a {
     padding: 5px 10px;
     border-radius: 5px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+main > article > a:hover {
+    color: rgb(219, 69, 83);
+}
+
+aside {
+    background-color: #fff;
+    border: 1px solid #cacaca;
+    margin: 0 5%;
+    margin-bottom: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+aside > section > ul > li > a {
+    text-decoration: none;
+}
+
+aside > section > ul > li > a:hover {
+    text-decoration: none;
+    color: rgb(219, 69, 83);
+}
+
+aside > section {
+    padding: 0 5% 20px;
+}
+
+aside > section > h2 {
+    font-size: 18px;
+}
+
+aside > section > ul > li {
+    margin-bottom: 10px;
+}
+
+aside > section > ul > li > img {
+    float: left;
+    width: 50px;
 }
