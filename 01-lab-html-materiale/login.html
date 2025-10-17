@@ -3,11 +3,8 @@
 <!-- Ricorda: html non lo usiamo per presentare (estetica) ma solo per dare la struttura del contenuto -->
 <head>
     <title>Login | Blog TW</title>
-    <style>
-        img {
-            width: 20vw;
-        }
-    </style>
+    <link rel="stylesheet" href="./css/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 <body>
     <header>
@@ -19,10 +16,7 @@
         <ul>
             <!-- shortcut: li*4>a -->
             <!-- # puo essere usato per self-reference e per puntare a una sezione specifica-->
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Archivio</a></li>
-            <li><a href="#">Contatti</a></li>
-            <li><a href="#">Login</a></li>
+            <li><a href="#">Home</a></li><li><a href="#">Archivio</a></li><li><a href="#">Contatti</a></li><li><a href="#">Login</a></li>
         </ul>
     </nav>
 
@@ -33,12 +27,10 @@
             <ul>
                 <li>
                     <!-- for e linkato all'id-->
-                    <label for="username">Username:</label>
-                    <input type="text" id="username" name="username"/>
+                    <label for="username">Username:</label><input type="text" id="username" name="username"/>
                 </li>
                 <li>
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" name="password"/>
+                    <label for="password">Password:</label><input type="password" id="password" name="password"/>
                 </li>
                 <li>
                     <input type="submit" value="Invia"/>

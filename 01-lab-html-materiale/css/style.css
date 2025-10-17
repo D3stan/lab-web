@@ -73,7 +73,7 @@ main > h2 {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-main > article {
+main > article, main > section, main > form {
     background-color: #fff;
     border: 1px solid #cacaca;
     text-align: center;
@@ -100,7 +100,7 @@ main > article > p:nth-of-type(2) {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-main > article > a {
+main > article > a, form input[type="submit"] {
     color: rgb(0, 0, 0);
     text-decoration: none;
     background-color: #e4e4e4;
@@ -109,9 +109,71 @@ main > article > a {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-main > article > a:hover {
+main > article > a:hover, form input[type="submit"]:hover {
     color: rgb(219, 69, 83);
+    cursor: pointer;
 }
+
+/* CONTATTI */
+
+table {
+    /* gestisce lo spazio tra le celle della tabella */
+    border-spacing: 0;
+    border-collapse: collapse;
+
+    /* centro la tabella */
+    width: 100%;
+    margin-top: 20px;
+}
+
+table th, table td {
+    border: 1px solid #000;
+}
+
+main > section > table th {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+/* LOGIN */
+
+/* ho messo lo style del form insieme a quello di article e section (sopra) perche' condividono molte proprieta' */
+
+/* sovrascrivo il padding rispetto alla regola sopra */
+main > form {
+    padding-top: 20px;
+}
+
+form ul {
+    width: 80%;
+    margin: 0 10%;
+    list-style: none;
+}
+
+form ul li {
+    /* non usiamo margi-top poiche nella foto il tasto invia e' distanziato di 40px da sotto */
+    margin-bottom: 20px;
+    text-align: right;
+}
+
+form ul li label {
+    width: 50%;
+    display: inline-block;
+    text-align: left;
+    cursor: pointer; /* cambia il cursore quando passo sopra l'etichetta */
+}
+
+/* il pulsante ha lo stesso stile del link negli articoli, quindi l'ho messo sopra, devo solo toglierli il bordo */
+form ul li input[type="submit"] {
+    border: none;
+}
+
+/* uso la negazione per selezionare tutti gli input tranne quello di tipo submit  cosi il bottone rimane piccolo */
+form ul li input:not([type="submit"]) {
+    width: 50%;
+    box-sizing: border-box; /* fa in modo che il padding venga calcolato comprendendo la larghezza totale */
+}
+
 
 aside {
     background-color: #fff;
