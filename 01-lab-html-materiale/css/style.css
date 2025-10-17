@@ -13,7 +13,7 @@ body, h1, ul {
 "body > header" significa tutti gli header figli di body 
 non uso "header" da solo per maggior dettaglio del codice
 */
-body > header, footer {
+body > header, body > footer {
     background-color: rgb(54, 54, 54);
     color: #fff;
     text-align: center;
@@ -116,8 +116,7 @@ main > article > a:hover {
 aside {
     background-color: #fff;
     border: 1px solid #cacaca;
-    margin: 0 5%;
-    margin-bottom: 20px;
+    margin: 0 5% 20px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
