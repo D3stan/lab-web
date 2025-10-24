@@ -46,16 +46,14 @@
     </main><!-- Non nel senso che sta di fianco ma nel senso che non e' il contenuto principale della pagina--><aside>
         <!-- aside e main sono sullo stesso livello, quindi posso usare h2 senza problemi-->
         <section>
-            <h2>Post Popolari</h2>
+            <h2>Post Casuali</h2>
             <ul>
+                <?php foreach($templateParams["articolicasuali"] as $articolocasuale): ?>
                 <li>
-                    <img src="./img/html5-js-css3.png" alt=""/>
-                    <a href="#">Intro alle Tecnologie Web Client Side</a>
+                    <img src="<?php echo UPLOAD_DIR.$articolocasuale["imgarticolo"] // Concatena la costante upload_dir con il nome del file?>" alt=""/>
+                    <a href="#"><?php echo $articolocasuale["titoloarticolo"]?></a>
                 </li>
-                <li>
-                    <img src="./img/php.png" alt=""/>
-                    <a href="#">Intro alle Tecnologie Web Server Side</a>
-                </li>
+                <?php endforeach; ?>
             </ul>
         </section>
 
