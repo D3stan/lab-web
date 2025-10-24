@@ -1,0 +1,236 @@
+body {
+    background-color: #e4e4e4;
+}
+
+/* sovrascrivo il foglio di stile di default del browser */
+/* uso la virgola come operatore logico "OR" */
+body, h1, ul {
+    margin: 0;
+    padding: 0;
+}
+
+/* 
+"body > header" significa tutti gli header figli di body 
+non uso "header" da solo per maggior dettaglio del codice
+*/
+body > header, body > footer {
+    background-color: rgb(54, 54, 54);
+    color: #fff;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace; /* ne specifico altri come rollback */
+    padding: 20px 0; /* top-bottom, left-right */
+}
+
+/* tutte le dimensioni orizzontali le esprimo in percentuale, quelle verticali in pixel */
+nav {
+    margin: 0 4%;
+}
+
+nav ul, aside ul {
+    list-style: none;
+}
+
+nav ul li {
+    display: inline-block;
+    width: 45%; /* 45% * 2 + 5% * 2 = 100% */
+    text-align: center;
+    background-color: rgb(54, 54, 54);
+    /* non specifico il colore del testo qui perche' verrebbe sovrascritto dal colore di default del link */
+    margin-top: 10px;
+}
+
+/* se seleziono gli elementi pari devo dare il margine a sinistra, quelli dispari lo devono avere a destra */
+nav ul li:nth-child(odd) {
+    margin-right: 10%;
+}
+
+/* specifico il font per i link ma per gli elementi della lista sarebbe andato bene lo stesso */
+nav ul li a {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #fff;
+    text-decoration: none;
+
+    /* voglio fare in modo che l'intero blocco del link sia cliccabile e non solo il testo */
+    /* non posso usare width 100% poiche e' un elemento di linea, devo trasformarlo*/
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+
+    /* specifico il padding dentro il link e non nel contenitore se no avrei una fetta non cliccabile */
+    padding: 5px 0;
+}
+
+nav ul li a:hover {
+    color: rgb(219, 69, 83);
+}
+
+body > main {
+    margin: 0 5%;;
+}
+
+main > h2 {
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 24px;
+}
+
+main > article, main > section, main > form {
+    background-color: #fff;
+    border: 1px solid #cacaca;
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 0 5% 20px;
+}
+
+main > article > img {
+    max-width: 100%;
+    max-height: 200px;
+}
+
+main > article > h3, main > article > p {
+    text-align: left;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+main > article > p {
+    font-size: 12px;
+}
+
+/* seleziono il secondo paragrafo (of-type seleziona il secondo <p>, mentre nth-child seleziona il secondo elemento in generale) */
+main > article > p:nth-of-type(2) {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+main > article > a, form input[type="submit"] {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    background-color: #e4e4e4;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+main > article > a:hover, form input[type="submit"]:hover {
+    color: rgb(219, 69, 83);
+    cursor: pointer;
+}
+
+/* CONTATTI */
+
+table {
+    /* gestisce lo spazio tra le celle della tabella */
+    border-spacing: 0;
+    border-collapse: collapse;
+
+    /* centro la tabella */
+    width: 100%;
+    margin-top: 20px;
+}
+
+table th, table td {
+    border: 1px solid #000;
+}
+
+main > section > table th {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+/* LOGIN */
+
+/* ho messo lo style del form insieme a quello di article e section (sopra) perche' condividono molte proprieta' */
+
+/* sovrascrivo il padding rispetto alla regola sopra */
+main > form {
+    padding-top: 20px;
+}
+
+form ul {
+    width: 80%;
+    margin: 0 10%;
+    list-style: none;
+}
+
+form ul li {
+    /* non usiamo margi-top poiche nella foto il tasto invia e' distanziato di 40px da sotto */
+    margin-bottom: 20px;
+    text-align: right;
+}
+
+form ul li label {
+    width: 50%;
+    display: inline-block;
+    text-align: left;
+    cursor: pointer; /* cambia il cursore quando passo sopra l'etichetta */
+}
+
+/* il pulsante ha lo stesso stile del link negli articoli, quindi l'ho messo sopra, devo solo toglierli il bordo */
+form ul li input[type="submit"] {
+    border: none;
+}
+
+/* uso la negazione per selezionare tutti gli input tranne quello di tipo submit  cosi il bottone rimane piccolo */
+form ul li input:not([type="submit"]) {
+    width: 50%;
+    box-sizing: border-box; /* fa in modo che il padding venga calcolato comprendendo la larghezza totale */
+}
+
+
+aside {
+    background-color: #fff;
+    border: 1px solid #cacaca;
+    margin: 0 5% 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+aside > section > ul > li > a {
+    text-decoration: none;
+}
+
+aside > section > ul > li > a:hover {
+    text-decoration: none;
+    color: rgb(219, 69, 83);
+}
+
+aside > section {
+    padding: 0 5% 20px;
+}
+
+aside > section > h2 {
+    font-size: 18px;
+}
+
+aside > section > ul > li {
+    margin-bottom: 10px;
+}
+
+aside > section > ul > li > img {
+    float: left;
+    width: 50px;
+}
+
+@media screen and (min-width: 768px) {
+    nav ul li {
+        width: 19%;
+    }
+
+    nav ul li:not(:last-child) {
+        margin-right: 8%;
+    }
+
+    main, aside {
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    body > main {
+        width: 50%;
+        margin: 0 0 0 10%;
+    }
+
+    body > aside {
+        width: 25%;
+        margin: 77px 10% 20px 5%;
+        box-sizing: border-box;
+    }
+}
