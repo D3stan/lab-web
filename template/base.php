@@ -3,7 +3,7 @@
 <html lang="it">
 <!-- Ricorda: html non lo usiamo per presentare (estetica) ma solo per dare la struttura del contenuto -->
 <head>
-    <title>Home | Blog TW</title>
+    <title><?php echo $templateParams["titolo"]; ?></title>
     <link rel="stylesheet" href="./css/style.css" />
     <!-- meta tag per il responsive design, in particolare =1 significa che il contenuto si adatta alla larghezza del dispositivo e parte al 100% (molto utile per dispositivi come tablet)-->
     <meta name="viewport" content="width=device-width, initial-scale=1" />

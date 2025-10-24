@@ -8,5 +8,16 @@
                 die("Connessione fallita al db");
             }
         }
+
+        /* Chiamo al plurale metodi che restituiscono molteplici dati e viceversa */
+        public function getRandomPosts($n = 2) {
+            $stmt = $this->db->prepare("SELECT idarticolo, titoloarticolo, imgarticolo FROM articolo ORDER BY RAND() LIMIT ?");
+            $stmt->bind_param("i", $n); /* con i si intende che il tipo di variabile e' intero */
+            
+            $stmt->execute();
+            $result = $stmt->get_result(); /* abbiamo solo un riferimento al risultato, per i risultati ci serve usare fetch */
+            
+            return $result->fetch_all(MYSQLI_ASSOC); /* accetta un parametro che indica come deve essere impostato il parametro (array di array, key value, etc) */
+        }
     }
 ?>
