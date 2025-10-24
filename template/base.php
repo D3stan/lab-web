@@ -25,24 +25,9 @@
 
     <!-- Usiamo main poiche tra una pagina e l'altra del sito cambia solo il contenuto dentro questo contenitore-->
     <main>
-        <h2>Ultimi Articoli</h2>
-        <article>
-            <!-- lasciamo l'alt vuoto poiche riteniamo l'immagine decorativa-->
-            <img src="./img/html5-js-css3.png" alt=""/> <!-- ricordarsi di mettere sempre "/" in chiusura di un empty tag per essere xml compliant-->
-            <h3>Intro alle Tecnologie Web Client Side</h3>
-            <p>3 Ottobre 2025 - Gino Pino</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae consectetur voluptate doloribus inventore velit, harum quisquam. Quaerat temporibus placeat commodi optio et, porro cumque nulla labore repellendus magnam recusandae fugiat?</p>
-            <a href="#">Leggi tutto</a>
-        </article>
-
-        <!-- per ora duplichiamo il codice, quando useremo PHP useremo lui per rimepire i dati e generare dinamicamente il contenuto e il numero di articoli-->
-        <article>
-            <img src="./img/php.png" alt=""/>
-            <h3>Intro alle Tecnologie Web Server Side</h3>
-            <p>3 Ottobre 2025 - Cippa Lippa</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae consectetur voluptate doloribus inventore velit, harum quisquam. Quaerat temporibus placeat commodi optio et, porro cumque nulla labore repellendus magnam recusandae fugiat?</p>
-            <a href="#">Leggi tutto</a>
-        </article>
+        <?php
+            require_once($templateParams["nome"]);
+        ?>
     </main><!-- Non nel senso che sta di fianco ma nel senso che non e' il contenuto principale della pagina--><aside>
         <!-- aside e main sono sullo stesso livello, quindi posso usare h2 senza problemi-->
         <section>
@@ -60,12 +45,9 @@
         <section>
             <h2>Categorie</h2>
             <ul>
-                <li><a href="#">HTML</a></li>
-                <li><a href="#">CSS</a></li>
-                <li><a href="#">PHP</a></li>
-                <li><a href="#">Javascript</a></li>
-                <li><a href="#">JQuery</a></li>
-                <li><a href="#">Apache</a></li>
+                <?php foreach($templateParams["categorie"] as $categoria): ?>
+                <li><a href="#"><?php echo $categoria["nomecategoria"] ?></a></li>
+                <?php endforeach; ?>
             </ul>
         </section>
     </aside>

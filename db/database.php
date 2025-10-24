@@ -19,5 +19,12 @@
             
             return $result->fetch_all(MYSQLI_ASSOC); /* accetta un parametro che indica come deve essere impostato il parametro (array di array, key value, etc) */
         }
+
+        public function getCategories() {
+            $stmt = $this->db->prepare("SELECT idcategoria, nomecategoria FROM categoria");
+            $stmt->execute();
+            $result = $stmt->get_result();
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
     }
 ?>
