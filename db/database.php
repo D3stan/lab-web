@@ -9,6 +9,12 @@
             }
         }
 
+        public function fetch($stmt) {
+            $stmt->execute();
+            $result = $stmt->get_result();
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
+
         /* Chiamo al plurale metodi che restituiscono molteplici dati e viceversa */
         public function getRandomPosts($n = 2) {
             $stmt = $this->db->prepare("SELECT idarticolo, titoloarticolo, imgarticolo FROM articolo ORDER BY RAND() LIMIT ?");
@@ -22,9 +28,7 @@
 
         public function getCategories() {
             $stmt = $this->db->prepare("SELECT idcategoria, nomecategoria FROM categoria");
-            $stmt->execute();
-            $result = $stmt->get_result();
-            return $result->fetch_all(MYSQLI_ASSOC);
+            return $this->fetch($stmt);
         }
 
         public function getPosts($n = -1) {
@@ -39,9 +43,21 @@
                 $stmt->bind_param("i", $n);
             }
 
-            $stmt->execute();
-            $result = $stmt->get_result();
-            return $result->fetch_all(MYSQLI_ASSOC);
+            return $this->fetch($stmt);
         }
+
+        public function getAuthors() {
+            $query = "SELECT username, nome, GROUP_CONCAT(DISTINCT nomecategoria) as argomenti
+                      FROM categoria, articolo, autore, articolo_ha_categoria
+                      WHERE idarticolo=articolo
+                      AND categoria=idcategoria
+                      AND autore=idautore
+                      AND attivo=1
+                      GROUP BY username, nome";
+            
+            $stmt = $this->db->prepare($query);
+            return $this->fetch($stmt);
+        }
+
     }
 ?>
