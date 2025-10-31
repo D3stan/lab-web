@@ -9,7 +9,7 @@
             }
         }
 
-        public function fetch($stmt) {
+        private function fetch($stmt) {
             $stmt->execute();
             $result = $stmt->get_result();
             return $result->fetch_all(MYSQLI_ASSOC);
@@ -55,6 +55,15 @@
                       AND attivo=1
                       GROUP BY username, nome";
             
+            $stmt = $this->db->prepare($query);
+            return $this->fetch($stmt);
+        }
+
+        public function getArticles() {
+            $query = "SELECT a.idarticolo, a.titoloarticolo, a.testoarticolo, a.dataarticolo, a.anteprimaarticolo, a.imgarticolo, au.nome
+                      FROM articolo a, autore au
+                      WHERE a.autore = au.idautore";
+
             $stmt = $this->db->prepare($query);
             return $this->fetch($stmt);
         }

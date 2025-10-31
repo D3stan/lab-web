@@ -9,5 +9,8 @@
 
     // var_dump($templateParams);
 
+    // Parametri specifici
+    $templateParams["articoli"] = $dbh->getArticles();
+
     require_once('template/base.php');
 ?>
