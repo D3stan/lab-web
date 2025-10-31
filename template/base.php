@@ -19,7 +19,7 @@
             <!-- shortcut: li*4>a -->
             <!-- # puo essere usato per self-reference e per puntare a una sezione specifica-->
             <!-- modifica per il css: tolgo le andate a capo se no la proprieta "inline" mi aggiunge uno spazio tra i list items-->
-            <li><a href="#">Home</a></li><li><a href="#">Archivio</a></li><li><a href="#">Contatti</a></li><li><a href="#">Login</a></li>
+            <li><a href="index.php">Home</a></li><li><a href="archivio.php">Archivio</a></li><li><a href="contatti.php">Contatti</a></li><li><a href="login.php">Login</a></li>
         </ul>
     </nav>
 
