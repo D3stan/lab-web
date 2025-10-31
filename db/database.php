@@ -26,5 +26,18 @@
             $result = $stmt->get_result();
             return $result->fetch_all(MYSQLI_ASSOC);
         }
+
+        public function getPosts($n = -1) {
+            $query = "SELECT idarticolo, titoloarticolo, imgarticolo, anteprimaarticolo, dataarticolo, nome FROM articolo, autore WHERE autore=idautore ORDER BY dataarticolo DESC";
+            if ($n > 0) {
+                $query .= " LIMIT ?"; 
+            }
+            
+            $stmt = $this->db->prepare($query);
+
+            if ($n > 0) {
+                $stmt->bind_param("i", $n);
+            }
+        }
     }
 ?>
